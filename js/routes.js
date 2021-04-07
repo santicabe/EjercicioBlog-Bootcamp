@@ -1,8 +1,13 @@
 const express = require("express");
 const router = express.Router();
 
+
+router.get("/", (req, res) => { res.send("Pagina de inicio"); });
+
+
 router.get("/home", (req, res) => {
-  res.send("home");
+ 
+  res.render("home");
 });
 
 router.get("/articulo/:id", (req, res) => {});

@@ -1,10 +1,11 @@
 const express = require("express");
 const app = express();
-const routes = require("./routes");
+const router = require("./routes");
+const { render } = require("ejs");
 
 app.set("view engine", "ejs");
-app.use(express.static("public"));
+
 app.use(express.urlencoded({ extended: true }));
-app.use(routes);
+app.use(router);
 
 app.listen(3000, () => console.log("Servidor corriendo en puerto 3000"));
