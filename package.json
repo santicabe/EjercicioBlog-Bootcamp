@@ -1,0 +1,23 @@
+{
+  "name": "ejercicio21-bootcamp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/santicabe/Ejercicio21-Bootcamp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/santicabe/Ejercicio21-Bootcamp/issues"
+  },
+  "homepage": "https://github.com/santicabe/Ejercicio21-Bootcamp#readme",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1"
+  }
+}
