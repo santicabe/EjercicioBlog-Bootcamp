@@ -5,7 +5,7 @@
 #titulo-home:hover {
   margin-top: 35px;
   transition: 0.2s;
-  font-size: 1.85rem;
+  font-size: 2.70rem;
 }
 
 #linea-titulo-home {
@@ -18,4 +18,25 @@
 
 #titulo {
   text-align: center;
+  margin-bottom: 200px;
+}
+
+body {
+  background-image: url(maxresdefault.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+#titulo-articulo {
+  font-family: fantasy;
+}
+
+#contenido-articulo {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+#author-info {
+  font-family: monospace;
 }
