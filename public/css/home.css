@@ -1,0 +1,21 @@
+#titulo-home {
+  margin-top: 40px;
+  text-align: center;
+}
+#titulo-home:hover {
+  margin-top: 35px;
+  transition: 0.2s;
+  font-size: 1.85rem;
+}
+
+#linea-titulo-home {
+  background-color: black;
+  width: 10rem;
+  height: 0.2rem;
+  margin: auto;
+  margin-top: 20px;
+}
+
+#titulo {
+  text-align: center;
+}

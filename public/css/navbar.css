@@ -1,16 +1,21 @@
+nav {
+  position: static;
+  background-color: black;
+}
+
 #navbar-logo {
   color: white;
+}
+#navbar-logo:hover {
+  color: white;
+  border-bottom: none;
 }
 
 .items-navbar {
   color: white;
 }
 
-nav {
-  background: rgb(0, 0, 0);
-  background: linear-gradient(
-    90deg,
-    rgba(0, 0, 0, 1) 25%,
-    rgba(231, 236, 19, 1) 65%
-  );
+a:hover {
+  color: yellow;
+  border-bottom: solid 1px yellow;
 }
