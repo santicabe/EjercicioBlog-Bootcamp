@@ -19,50 +19,146 @@
     <%- include("navbar")-%>
     <div class="container">
       <div class="row">
-        <div class="col-6 col-sm-4"></div>
-        <div class="col-6 col-sm-4 crearArticulo">
-          <h3>Crear articulo</h3>
-          <form action="/administrador" method="POST">
-            <label for="title">Titulo</label>
-            <input type="text" id="title" class="form-control" name="title" />
-            <label for="content">Contenido</label>
-            <input
-              type="text"
-              id="content"
-              class="form-control"
-              name="content"
-            />
-            <label for="img">Imagen</label>
-            <input
-              type="file"
-              id="img"
-              class="form-control"
-              name="imagen"
-              accept="image/jpg, image/png"
-            />
-            <label for="authorName">Nombre de autor</label>
-            <input
-              type="text"
-              id="authorName"
-              class="form-control"
-              name="authorName"
-            />
-            <label for="authorLastname">Apellido de autor</label>
-            <input
-              type="text"
-              id="authorLastname"
-              class="form-control"
-              name="authorLastname"
-            />
-            <label for="authorEmail">Email de autor</label>
-            <input
-              type="text"
-              id="authorEmail"
-              class="form-control"
-              name="authorEmail"
-            />
-            <button type="submit" class="btn btn-success">Crear!</button>
-          </form>
+        <h4>Listado de articulos</h4>
+        <div class="col-7 mt-3">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">id</th>
+                <th scope="col">Titulo</th>
+                <th scope="col">Autor</th>
+                <th scope="col">Fecha</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td colspan="2">Larry the Bird</td>
+                <td>@twitter</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-5">
+          <div id="crear-articulo" class="p-3 border rounded">
+            <h3 class="mb-4">Crear articulo</h3>
+            <form action="/administrador" method="POST">
+              <label for="title" class="mb-3">Titulo</label>
+              <input
+                type="text"
+                id="title"
+                class="form-control mb-3"
+                name="title"
+              />
+              <label for="content" class="mb-3">Contenido</label>
+              <input
+                type="text"
+                id="content"
+                class="form-control mb-3"
+                name="content"
+              />
+              <label for="img" class="mb-3">Imagen</label>
+              <input
+                type="file"
+                id="img"
+                class="form-control mb-3"
+                name="imagen"
+                accept="image/jpg, image/png"
+              />
+              <label for="authorName" class="mb-3">Nombre de autor</label>
+              <input
+                type="text"
+                id="authorName"
+                class="form-control mb-3"
+                name="authorName"
+              />
+              <label for="authorLastname" class="mb-3">Apellido de autor</label>
+              <input
+                type="text"
+                id="authorLastname"
+                class="form-control mb-3"
+                name="authorLastname"
+              />
+              <label for="authorEmail" class="mb-3">Email de autor</label>
+              <input
+                type="text"
+                id="authorEmail"
+                class="form-control mb-3"
+                name="authorEmail"
+              />
+            </form>
+            <div id="btn-crear">
+              <button type="submit" class="btn btn-success">Crear!</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-7"></div>
+        <div class="col-5">
+          <div id="eliminar-articulo" class="p-3 border rounded">
+            <h3 class="mb-4">Eliminar articulo</h3>
+            <form action="/administrador" method="POST">
+              <label for="title" class="mb-3">Titulo</label>
+              <input
+                type="text"
+                id="title"
+                class="form-control mb-3"
+                name="title"
+              />
+              <label for="content" class="mb-3">Contenido</label>
+              <input
+                type="text"
+                id="content"
+                class="form-control mb-3"
+                name="content"
+              />
+              <label for="img" class="mb-3">Imagen</label>
+              <input
+                type="file"
+                id="img"
+                class="form-control mb-3"
+                name="imagen"
+                accept="image/jpg, image/png"
+              />
+              <label for="authorName" class="mb-3">Nombre de autor</label>
+              <input
+                type="text"
+                id="authorName"
+                class="form-control mb-3"
+                name="authorName"
+              />
+              <label for="authorLastname" class="mb-3">Apellido de autor</label>
+              <input
+                type="text"
+                id="authorLastname"
+                class="form-control mb-3"
+                name="authorLastname"
+              />
+              <label for="authorEmail" class="mb-3">Email de autor</label>
+              <input
+                type="text"
+                id="authorEmail"
+                class="form-control mb-3"
+                name="authorEmail"
+              />
+            </form>
+            <div id="btn-crear">
+              <button type="submit" class="btn btn-danger">Eliminar!</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
