@@ -5,3 +5,12 @@
 .btn {
   margin-top: 10px;
 }
+
+#btn-crear {
+  text-align: center;
+  margin-top: 30px;
+}
+
+label{
+  font-weight: bold;
+}
