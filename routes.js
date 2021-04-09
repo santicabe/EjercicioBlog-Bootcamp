@@ -10,7 +10,9 @@ router.get("/home", (req, res) => {
   res.render("home");
 });
 
-router.get("/articulo/:id", (req, res) => {});
+router.get("/articulo/", (req, res) => {
+  res.render("articulo")
+});
 
 router.get("/administrador", (req, res) => {
   res.render("admin");
