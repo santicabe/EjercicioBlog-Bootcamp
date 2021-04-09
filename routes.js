@@ -1,9 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const mysql = require("mysql2");
-const home = require("./controllers/homeController");
+const home = require("./controllers/ArticlesController");
 
-home();
 router.get("/", (req, res) => {
   res.send("Pagina de inicio");
 });
@@ -13,7 +12,7 @@ router.get("/home", (req, res) => {
 });
 
 router.get("/articulo/", (req, res) => {
-  res.render("articulo")
+  res.render("articulo");
 });
 
 router.get("/administrador", (req, res) => {
@@ -23,5 +22,3 @@ router.get("/administrador", (req, res) => {
 router.post("/administrador", (req, res) => {});
 
 module.exports = router;
-
-console.log("puto el que lee");
