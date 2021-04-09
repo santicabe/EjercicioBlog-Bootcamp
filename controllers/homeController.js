@@ -1,4 +1,4 @@
-const findAll = require("../models/Articles");
+const findAll = require("../models/Article");
 
 const showHome = (req, res) => {
   findAll(function (articulos) {

@@ -1,8 +1,6 @@
 nav {
-  
   background-color: black;
   width: 100%;
-  
 }
 
 #navbar-logo {
@@ -13,11 +11,15 @@ nav {
   border-bottom: none;
 }
 
+#img-logo:hover {
+  border: yellow 4px solid;
+}
+
 .items-navbar {
   color: white;
 }
 
-a:hover {
+#items-navbar a:hover {
   color: yellow;
   border-bottom: solid 1px yellow;
 }

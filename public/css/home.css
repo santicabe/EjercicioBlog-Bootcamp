@@ -1,6 +1,6 @@
 #titulo-home {
   margin-top: 150px;
-  text-align: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 #titulo-home:hover {
   margin-top: 155px;
@@ -9,7 +9,7 @@
 }
 
 #linea-titulo-home {
-  background-color: black;
+  background-color: white;
   width: 10rem;
   height: 0.2rem;
   margin: auto;
@@ -35,14 +35,17 @@ body {
 #contenido-articulo {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
+  overflow: hidden;
+  text-overflow: clip;
 }
 
 #author-info {
   font-family: monospace;
+  font-size: 20px;
 }
 
 .container {
-  animation: transitionIn 0.90s;
+  animation: transitionIn 0.9s;
 }
 
 @keyframes transitionIn {
@@ -55,7 +58,13 @@ body {
     transform: rotateX(0);
   }
 }
+#photo-header {
+  background-image: url(/img/fonto.jpg);
+  object-fit: contain;
+  padding: 50px;
+  color: white;
+}
 
-#article:hover {
-
+#img-articulo {
+  object-fit: cover;
 }
