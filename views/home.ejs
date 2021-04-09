@@ -11,28 +11,32 @@
       integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
       crossorigin="anonymous"
     />
-
+    <link rel="shortcut icon" href="/img/gordo-colombes-logo" />
     <link rel="stylesheet" href="/css/navbar.css" />
     <link rel="stylesheet" href="/css/home.css" />
     <link rel="shortcut icon" href="img/logo.jpg" />
   </head>
   <body>
     <%- include("navbar")-%>
-
-    <div class="container">
-      <div id="titulo">
-        <h1 id="titulo-home">Bienvenidos a la pagina de Memes del CAP</h1>
-        <div id="linea-titulo-home"></div>
+    <div id="photo-header">
+      <div class="container">
+        <div id="titulo">
+          <h1 id="titulo-home">Bienvenidos a la pagina de Memes del CAP</h1>
+          <div id="linea-titulo-home"></div>
+        </div>
       </div>
+    </div>
+    <div class="container">
       <div id="articulos-all">
         <% articulos.forEach(element => { %>
 
-        <div id="article" class="border shadow-sm rounded p-3">
+        <div id="article" class="border shadow-sm rounded p-5 mt-5">
           <div class="row">
             <div class="col-lg-6 col-sm-12">
               <div id="titulo-articulo">
-                <h4 class="p-1"><%= element.titulo %></h4>
+                <h4 class="p-1 mb-3"><%= element.titulo %></h4>
               </div>
+              <hr />
               <div id="contenido-articulo" class="p-1">
                 <%= element.contenido %>
               </div>
@@ -42,7 +46,11 @@
             </div>
             <div class="col-lg-6 col-sm-12">
               <div id="img-articulo">
-                <img src="/img/<%= element.imagen %> " alt="" />
+                <img
+                  src="/img/<%=element.imagen%>"
+                  alt="img"
+                  class="img-fluid"
+                />
               </div>
             </div>
           </div>
