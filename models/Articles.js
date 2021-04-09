@@ -1,6 +1,6 @@
 const sql = require("mysql2");
 
-const home = () => {
+const findAll = () => {
   const connection = sql.createConnection({
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
@@ -10,19 +10,18 @@ const home = () => {
 
   connection.connect(function (err) {
     if (err) console.log("No conecta");
-    console.log("nos conectamos a la BD");
+    console.log("Nos conectamos a la BD!");
   });
 
-  connection.query("SELECT * FROM articulos", (err, result) => {
+  connection.query("SELECT * FROM articulos", (err, article) => {
     if (err) {
       throw err;
     } else {
-      console.log(result[2].titulo);
+      console.log(article)
     }
   });
 
   connection.end();
 };
 
-module.exports = home;
-console.log();
+module.exports = findAll;
