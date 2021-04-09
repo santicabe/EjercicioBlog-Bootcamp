@@ -17,7 +17,6 @@ const customQuery = (sqlString, callback) => {
     if (err) {
       throw err;
     } else {
-      console.log(data);
       callback(data);
     }
   });

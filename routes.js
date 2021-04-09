@@ -1,16 +1,13 @@
 const express = require("express");
 const router = express.Router();
 const mysql = require("mysql2");
-const Connection = require("mysql2/typings/mysql/lib/Connection");
 const home = require("./controllers/homeController");
 
 router.get("/", (req, res) => {
   res.send("Pagina de inicio");
 });
 
-router.get("/home", (req, res) => {
-  res.render("home");
-});
+router.get("/home", home.showHome);
 
 router.get("/articulo/", (req, res) => {
   res.render("articulo");

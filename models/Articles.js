@@ -10,4 +10,6 @@ const findAll = (callback) => {
   );
 };
 
+console.log("hols");
+
 module.exports = findAll;
