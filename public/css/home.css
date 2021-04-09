@@ -1,9 +1,9 @@
 #titulo-home {
-  margin-top: 40px;
+  margin-top: 150px;
   text-align: center;
 }
 #titulo-home:hover {
-  margin-top: 35px;
+  margin-top: 155px;
   transition: 0.2s;
   font-size: 2.7rem;
 }
@@ -42,7 +42,7 @@ body {
 }
 
 .container {
-  animation: transitionIn 0.75s;
+  animation: transitionIn 0.90s;
 }
 
 @keyframes transitionIn {
@@ -54,4 +54,8 @@ body {
     opacity: 1;
     transform: rotateX(0);
   }
+}
+
+#article:hover {
+
 }
