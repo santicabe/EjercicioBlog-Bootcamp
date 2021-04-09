@@ -1,5 +1,5 @@
 const customQuery = require("../customQuery");
-const { all } = require("../routes");
+//const { all } = require("../routes");
 
 const findAll = (callback) => {
   customQuery(
