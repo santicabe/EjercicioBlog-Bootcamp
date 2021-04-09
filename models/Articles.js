@@ -1,27 +1,13 @@
-const sql = require("mysql2");
+const customQuery = require("../customQuery");
+const { all } = require("../routes");
 
-const findAll = () => {
-  const connection = sql.createConnection({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASS,
-    database: process.env.DB_DATABASE,
-  });
-
-  connection.connect(function (err) {
-    if (err) console.log("No conecta");
-    console.log("Nos conectamos a la BD!");
-  });
-
-  connection.query("SELECT * FROM articulos", (err, article) => {
-    if (err) {
-      throw err;
-    } else {
-      console.log(article)
+const findAll = (callback) => {
+  customQuery(
+    "SELECT * FROM articulos ORDER BY fechaDeCreacion",
+    function (resultados) {
+      callback(resultados);
     }
-  });
-
-  connection.end();
+  );
 };
 
 module.exports = findAll;

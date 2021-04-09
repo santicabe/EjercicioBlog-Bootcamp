@@ -1,8 +1,8 @@
 const findAll = require("../models/Articles");
 
-findAll();
-
-const AllArticles = (req, res) => {
-  const articles = findAll();
-  res.render("home", { articles });
+const allArticles = (req, res) => {
+  findAll(function (articulos) {
+    console.log(articulos);
+  });
+  res.render("home", { articulos });
 };
