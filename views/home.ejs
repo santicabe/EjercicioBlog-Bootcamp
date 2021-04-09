@@ -24,25 +24,27 @@
         <div id="linea-titulo-home"></div>
       </div>
       <div id="articulos-all">
+        <% articulos.forEach(element => { %>
+
         <div id="article" class="border shadow-sm rounded p-3">
           <div class="row">
             <div class="col-lg-6 col-sm-12">
               <div id="titulo-articulo">
-                <h4 class="p-1">Titulo de Articulo</h4>
+                <h4 class="p-1"><%= element.titulo %></h4>
               </div>
               <div id="contenido-articulo" class="p-1">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. At
-                laudantium, eius commodi obcaecati voluptates officiis. Sint,
-                commodi similique. Illum incidunt facilis, dicta excepturi minus
-                consequuntur nostrum provident doloremque vero dolores!
+                <%= element.contenido %>
               </div>
-              <div id="author-info" class="p-1 mt-3">Joaquin Etchegaray</div>
+              <div id="author-info" class="p-1 mt-3">
+                <%= element.autorNombre %> <%= element.autorApellido %>
+              </div>
             </div>
             <div class="col-lg-6 col-sm-12">
               <div id="img-articulo"><img src="/img/logo.jpg" alt="" /></div>
             </div>
           </div>
         </div>
+        <% }) %>
       </div>
     </div>
 
