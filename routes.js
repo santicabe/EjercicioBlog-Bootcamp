@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const mysql = require("mysql2");
-const home = require("./controllers/homeController");
+const home = require("./controllers/articleController");
 
 router.get("/", (req, res) => {
   res.send("Pagina de inicio");

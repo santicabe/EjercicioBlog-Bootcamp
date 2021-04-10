@@ -1,27 +1,17 @@
-const sql = require("mysql2");
+const sql = require("mysql2/promise");
 
-const customQuery = (sqlString, callback) => {
-  const connection = sql.createConnection({
+const customQuery = async (sqlString) => {
+  const connection = await sql.createConnection({
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
     password: process.env.DB_PASS,
     database: process.env.DB_DATABASE,
   });
 
-  connection.connect(function (err) {
-    if (err) console.log("No conecta");
-    console.log("Nos conectamos a la BD!");
-  });
-
-  connection.query(sqlString, (err, data) => {
-    if (err) {
-      throw err;
-    } else {
-      callback(data);
-    }
-  });
+  const [data] = await connection.execute(sqlString);
 
   connection.end();
+  return data;
 };
 
 module.exports = customQuery;

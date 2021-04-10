@@ -1,15 +1,30 @@
 const customQuery = require("../customQuery");
-//const { all } = require("../routes");
 
-const findAll = (callback) => {
-  customQuery(
-    "SELECT * FROM articulos ORDER BY fechaDeCreacion",
-    function (resultados) {
-      callback(resultados);
-    }
+/* class Article {
+  id;
+  titulo;
+  contenido;
+  imagen;
+  fechaDeCreacion;
+  autorNombre;
+  autorApellido;
+  autorEmail;
+  static findAll() {
+
+  } 
+  save(){}
+  static findById() {}
+  static find(fields) {}
+  update (){}
+  delete () {}
+}
+ */
+
+const findAll = async (callback) => {
+  const result = await customQuery(
+    "SELECT * FROM articulos ORDER BY fechaDeCreacion DESC"
   );
+  return result;
 };
-
-console.log("hols");
 
 module.exports = findAll;
