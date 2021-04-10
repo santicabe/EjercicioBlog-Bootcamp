@@ -1,6 +1,6 @@
 const customQuery = require("../customQuery");
 
-/* class Article {
+class Article {
   id;
   titulo;
   contenido;
@@ -9,22 +9,20 @@ const customQuery = require("../customQuery");
   autorNombre;
   autorApellido;
   autorEmail;
-  static findAll() {
-
-  } 
-  save(){}
-  static findById() {}
+  static async findAll() {
+    const result = await customQuery(
+      "SELECT * FROM articulos ORDER BY fechaDeCreacion DESC"
+    );
+    return result;
+  }
+  save() {}
+  static async findById(id) {
+    const result = await customQuery("SELECT * FROM articulos WHERE id =" + id);
+    return result;
+  }
   static find(fields) {}
-  update (){}
-  delete () {}
+  update() {}
+  delete() {}
 }
- */
 
-const findAll = async (callback) => {
-  const result = await customQuery(
-    "SELECT * FROM articulos ORDER BY fechaDeCreacion DESC"
-  );
-  return result;
-};
-
-module.exports = findAll;
+module.exports = Article;

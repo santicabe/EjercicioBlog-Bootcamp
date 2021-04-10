@@ -38,7 +38,8 @@
               </div>
               <hr />
               <div id="contenido-articulo" class="p-1">
-                <%= element.contenido %>
+                <%= element.contenido.substring(0, 200) %>
+                <strong>(Continúa...)</strong>
               </div>
               <div id="author-info" class="p-1 mt-3">
                 <%= element.autorNombre %> <%= element.autorApellido %>

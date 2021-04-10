@@ -1,8 +1,14 @@
-const findAll = require("../models/Article");
+const Article = require("../models/Article");
 
 const showHome = async (req, res) => {
-  const articulos = await findAll();
+  const articulos = await Article.findAll();
   res.render("home", { articulos });
 };
 
-module.exports = { showHome };
+const showArticle = async (req, res) => {
+  id = req.params.id;
+  const articulo = Article.findById(id);
+  res.render("article", { articulo });
+};
+
+module.exports = { showHome, showArticle };
