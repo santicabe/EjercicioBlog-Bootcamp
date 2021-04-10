@@ -8,7 +8,7 @@ const showHome = async (req, res) => {
 const showArticle = async (req, res) => {
   id = req.params.id;
   const articulo = Article.findById(id);
-  res.render("article", { articulo });
+  res.render("articulo", { articulo });
 };
 
 console.log("hola");

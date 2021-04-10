@@ -1,6 +1,6 @@
 #titulo-home {
   margin-top: 150px;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 #titulo-home:hover {
   margin-top: 155px;
@@ -69,7 +69,8 @@ body {
   object-fit: cover;
 }
 
-#link-articles{
+#link-articles {
   text-decoration: none;
   color: black;
 }
+

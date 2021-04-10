@@ -15,6 +15,11 @@
     <link rel="stylesheet" href="/css/navbar.css" />
     <link rel="stylesheet" href="/css/home.css" />
     <link rel="shortcut icon" href="img/logo.jpg" />
+    <link rel="stylesheet" href="/css/footer.css" />
+     <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    />
   </head>
   <body>
     <%- include("navbar")-%>
@@ -29,37 +34,41 @@
     <div class="container">
       <div id="articulos-all">
         <% articulos.forEach(element => { %>
-
-        <div id="article" class="border shadow-sm rounded p-5 mt-5">
-          <div class="row">
-            <div class="col-lg-6 col-sm-12">
-              <div id="titulo-articulo">
-                <h4 class="p-1 mb-3"><%= element.titulo %></h4>
+        <a href="articulo/<%=element.id%>" id="link-articles">
+          <div id="article" class="border shadow-sm rounded p-5 mt-5">
+            <div class="row">
+              <div class="col-lg-6 col-sm-12">
+                <div id="titulo-articulo">
+                  <h4 class="p-1 mb-3"><%= element.titulo %></h4>
+                </div>
+                <hr />
+                <div id="contenido-articulo" class="p-1">
+                  <%= element.contenido.substring(0, 400) %>
+                  <strong>(Continúa...)</strong>
+                </div>
+                <div id="author-info" class="p-1 mt-3">
+                  <%= element.autorNombre %> <%= element.autorApellido %>
+                </div>
               </div>
-              <hr />
-              <div id="contenido-articulo" class="p-1">
-                <%= element.contenido.substring(0, 200) %>
-                <strong>(Continúa...)</strong>
-              </div>
-              <div id="author-info" class="p-1 mt-3">
-                <%= element.autorNombre %> <%= element.autorApellido %>
-              </div>
-            </div>
-            <div class="col-lg-6 col-sm-12">
-              <div id="img-articulo">
-                <img
-                  src="/img/<%=element.imagen%>"
-                  alt="img"
-                  class="img-fluid"
-                />
+              <div class="col-lg-6 col-sm-12">
+                <div
+                  id="img-articulo"
+                  class="d-flex justify-content-center align-items-center"
+                >
+                  <img
+                    src="/img/<%=element.imagen%>"
+                    alt="img"
+                    class="img-fluid"
+                  />
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </a>
         <% }) %>
       </div>
     </div>
-
+    <%- include("footer")-%>
     <script
       src="https://code.jquery.com/jquery-3.6.0.js"
       integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="

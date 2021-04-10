@@ -13,15 +13,17 @@
       crossorigin="anonymous"
     />
 
+    <link rel="shortcut icon" href="img/gordo-colombes-logo" />
     <link rel="stylesheet" href="/css/navbar.css" />
     <link rel="stylesheet" href="/css/articulo.css" />
+    <link rel="shortcut icon" href="img/logo.jpg" />
   </head>
   <body>
     <%- include("navbar")-%>
 
     <div class="container">
       <div class="header-articulo text-center">
-        <h1 id="titulo-articulo">Titulo del articulo</h1>
+        <h1 id="titulo-articulo"><%=articulo.titulo%></h1>
         <h4 id="autor-articulo" class="mt-4">
           Creado por Joaquin Etchegaray el 8 de abril de 2021
         </h4>
@@ -106,5 +108,6 @@
       </div>
       <div class="comentarios"></div>
     </div>
+    <%- include("footer")-%>
   </body>
 </html>
