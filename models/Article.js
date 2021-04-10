@@ -18,7 +18,7 @@ class Article {
   save() {}
   static async findById(id) {
     const result = await customQuery("SELECT * FROM articulos WHERE id =" + id);
-    return result;
+    return result[0];
   }
   static find(fields) {}
   update() {}
