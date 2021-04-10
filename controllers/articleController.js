@@ -11,4 +11,6 @@ const showArticle = async (req, res) => {
   res.render("article", { articulo });
 };
 
+console.log("hola");
+
 module.exports = { showHome, showArticle };
