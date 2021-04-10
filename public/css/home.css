@@ -68,3 +68,8 @@ body {
 #img-articulo {
   object-fit: cover;
 }
+
+#link-articles{
+  text-decoration: none;
+  color: black;
+}
