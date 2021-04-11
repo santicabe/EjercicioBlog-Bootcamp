@@ -26,6 +26,7 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
+  background-color: rgb(246, 246, 115) !important;
 }
 
 #titulo-articulo {
@@ -74,3 +75,10 @@ body {
   color: black;
 }
 
+
+
+#article {
+  background-color: rgb(241, 243, 126);
+  border: black solid 1px !important;
+ 
+}

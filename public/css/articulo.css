@@ -5,10 +5,11 @@
 }
 #autor-articulo {
   font-family: monospace;
+  font-size: 20px;
 }
 
 #contenido-articulo {
-  margin-top: 300px;
+  margin-top: 100px;
 }
 
 .container {
@@ -24,4 +25,22 @@
     opacity: 1;
     transform: rotateX(0);
   }
+}
+
+#articulo {
+  margin-top: 100px;
+}
+#img-articulo {
+  display: flex;
+  justify-content: center;
+
+  align-items: center;
+}
+p {
+  font-size: 30px;
+  text-align: justify;
+}
+
+body {
+  background-color: rgb(246, 246, 115)  !important;
 }
