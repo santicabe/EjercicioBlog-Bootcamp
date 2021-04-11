@@ -1,5 +1,4 @@
 const Article = require("../models/Article");
-const formidable = require("formidable");
 
 const adminList = async (_req, res) => {
   const articulos = await Article.listByid();
