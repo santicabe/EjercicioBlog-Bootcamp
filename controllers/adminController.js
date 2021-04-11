@@ -18,7 +18,8 @@ const createArticle = async (req, res) => {
     "fecha",
     autorNombre,
     autorApellido,
-    email
+    email,
+    "img"
   );
 
   res.send("gracias");

@@ -21,9 +21,9 @@ class Article {
     return result;
   }
 
-  save(titulo, contenido, fecha, nombre, apellido, email, img) {
-    customQuery(`INSERT INTO articulos (titulo, contenido, fechaDeCreacion, autorNombre, autorApellido, autorEmail, imagen) VALUES
-    (${titulo}, ${contenido}, ${fecha}, ${nombre}, ${apellido}, ${email}, ${img} )`);
+  static async save(titulo, contenido, fecha, nombre, apellido, email, img) {
+    await customQuery(`INSERT INTO articulos (titulo, contenido, fechaDeCreacion, autorNombre, autorApellido, autorEmail, imagen) VALUES
+    ("${titulo}", "${contenido}", "${fecha}", "${nombre}", "${apellido}", "${email}", "${img}" )`);
   }
 
   static async findById(id) {
