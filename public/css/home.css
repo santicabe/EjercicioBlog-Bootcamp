@@ -64,6 +64,7 @@ body {
   object-fit: contain;
   padding: 50px;
   color: white;
+  border-bottom: black solid 1px;
 }
 
 #img-articulo {

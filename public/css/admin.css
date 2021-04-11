@@ -37,5 +37,9 @@ body {
 #crear-articulo,
 #modificar-articulo {
   background-color: rgb(241, 243, 126);
-  border: black solid 1px !important;
+  border: black solid 0.7px !important;
+}
+
+#row {
+  margin-top: 150px;
 }
