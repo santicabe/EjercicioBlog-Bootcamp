@@ -15,7 +15,14 @@ class Article {
     );
     return result;
   }
+
+  static async listByid() {
+    const result = await customQuery("SELECT * FROM articulos ORDER BY id");
+    return result;
+  }
+
   save() {}
+
   static async findById(id) {
     const result = await customQuery("SELECT * FROM articulos WHERE id =" + id);
     return result[0];
