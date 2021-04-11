@@ -29,9 +29,13 @@ const createArticle = async (req, res) => {
     keepExtensions: true,
   });
 
+<<<<<<< HEAD
   form.parse(req, (err, fields, files) => {
     res.redirect("home");
   });
+=======
+  res.render("gracias");
+>>>>>>> 2adf3f7ea156a32f7fb366c4680e786c545efd76
 };
 
 module.exports = { adminList, createArticle };
