@@ -22,7 +22,7 @@ const createArticle = async (req, res) => {
     "img"
   );
 
-  res.send("gracias");
+  res.render("gracias");
 };
 
 module.exports = { adminList, createArticle };

@@ -1,6 +1,7 @@
 #titulo-home {
   margin-top: 150px;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 #titulo-home:hover {
   margin-top: 155px;
@@ -76,10 +77,7 @@ body {
   color: black;
 }
 
-
-
 #article {
   background-color: rgb(241, 243, 126);
   border: black solid 1px !important;
- 
 }

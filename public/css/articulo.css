@@ -39,8 +39,13 @@
 p {
   font-size: 30px;
   text-align: justify;
+  line-height: 50px;
 }
 
 body {
   background-color: rgb(246, 246, 115)  !important;
+}
+
+#img-individual{
+  border: black 1px solid;
 }
