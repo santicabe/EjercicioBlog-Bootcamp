@@ -56,7 +56,11 @@
         <div class="col-5">
           <div id="crear-articulo" class="p-3 border rounded tabcontent">
             <h3 class="mb-4">Crear articulo</h3>
-            <form action="/administrador" method="POST">
+            <form
+              action="/administrador"
+              method="POST"
+              enctype="multipart/form-data"
+            >
               <label for="title" class="mb-3">Titulo</label>
               <input
                 type="text"
@@ -164,7 +168,6 @@
           </div>
         </div>
       </div>
-      
     </div>
     <%- include("footer")-%>
   </body>

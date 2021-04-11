@@ -1,4 +1,5 @@
 const Article = require("../models/Article");
+const formidable = require("formidable");
 
 const adminList = async (_req, res) => {
   const articulos = await Article.listByid();
@@ -12,6 +13,7 @@ const createArticle = async (req, res) => {
   const autorNombre = req.body.authorName;
   const autorApellido = req.body.authorLastname;
   const email = req.body.authorEmail;
+  const img = req.body.img;
   await Article.save(
     titulo,
     contenido,
@@ -19,10 +21,17 @@ const createArticle = async (req, res) => {
     autorNombre,
     autorApellido,
     email,
-    "img"
+    img
   );
+  const form = formidable({
+    multiples: true,
+    uploadDir: __dirname + "/public/img",
+    keepExtensions: true,
+  });
 
-  res.send("gracias");
+  form.parse(req, (err, fields, files) => {
+    res.redirect("home");
+  });
 };
 
 module.exports = { adminList, createArticle };
