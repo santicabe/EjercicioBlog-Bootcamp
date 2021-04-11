@@ -11,7 +11,7 @@
   margin-top: 30px;
 }
 
-label{
+label {
   font-weight: bold;
 }
 
@@ -28,4 +28,14 @@ label{
     opacity: 1;
     transform: rotateX(0);
   }
+}
+
+body {
+  background-color: rgb(246, 246, 115) !important;
+}
+
+#crear-articulo,
+#modificar-articulo {
+  background-color: rgb(241, 243, 126);
+  border: black solid 1px !important;
 }
