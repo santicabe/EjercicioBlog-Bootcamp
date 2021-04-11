@@ -13,7 +13,7 @@ const createArticle = async (req, res) => {
   const autorNombre = req.body.authorName;
   const autorApellido = req.body.authorLastname;
   const email = req.body.authorEmail;
-  const img = req.body.img;
+
   await Article.save(
     titulo,
     contenido,
@@ -21,21 +21,10 @@ const createArticle = async (req, res) => {
     autorNombre,
     autorApellido,
     email,
-    img
+    "img"
   );
-  const form = formidable({
-    multiples: true,
-    uploadDir: __dirname + "/public/img",
-    keepExtensions: true,
-  });
 
-<<<<<<< HEAD
-  form.parse(req, (err, fields, files) => {
-    res.redirect("home");
-  });
-=======
   res.render("gracias");
->>>>>>> 2adf3f7ea156a32f7fb366c4680e786c545efd76
 };
 
 module.exports = { adminList, createArticle };
