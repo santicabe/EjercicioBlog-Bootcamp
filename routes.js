@@ -14,6 +14,6 @@ router.get("/articulo/:id", home.showArticle);
 
 router.get("/administrador", admin.adminList);
 
-router.post("/administrador", (req, res) => {});
+router.post("/administrador", admin.createArticle);
 
 module.exports = router;

@@ -6,4 +6,22 @@ const adminList = async (_req, res) => {
   res.render("admin", { articulos });
 };
 
-module.exports = { adminList };
+const createArticle = async (req, res) => {
+  const titulo = req.body.title;
+  const contenido = req.body.content;
+  const autorNombre = req.body.authorName;
+  const autorApellido = req.body.authorLastname;
+  const email = req.body.authorEmail;
+  await Article.save(
+    titulo,
+    contenido,
+    "fecha",
+    autorNombre,
+    autorApellido,
+    email
+  );
+
+  res.send("gracias");
+};
+
+module.exports = { adminList, createArticle };

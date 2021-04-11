@@ -21,15 +21,23 @@ class Article {
     return result;
   }
 
-  save() {}
+  save(titulo, contenido, fecha, nombre, apellido, email, img) {
+    customQuery(`INSERT INTO articulos (titulo, contenido, fechaDeCreacion, autorNombre, autorApellido, autorEmail, imagen) VALUES
+    (${titulo}, ${contenido}, ${fecha}, ${nombre}, ${apellido}, ${email}, ${img} )`);
+  }
 
   static async findById(id) {
     const result = await customQuery("SELECT * FROM articulos WHERE id =" + id);
     return result[0];
   }
+
   static find(fields) {}
+
   update() {}
-  delete() {}
+
+  async delete(id) {
+    await customQuery("DELETE FROM articulos WHERE id=" + id);
+  }
 }
 
 module.exports = Article;
