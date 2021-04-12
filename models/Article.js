@@ -33,10 +33,29 @@ class Article {
 
   static find(fields) {}
 
-  update() {}
+  async update(
+    id,
+    tituloN,
+    contenidoN,
+    fechaN,
+    nombreN,
+    apellidoN,
+    emailN,
+    imgN
+  ) {
+    await customQuery(`UPDATE articulos 
+      SET titulo = ${tituloN},
+      contenido = ${contenidoN},
+      fechaDeCreacion = ${fechaN},
+      autorNombre = ${nombreN},
+      autorApellido = ${apellidoN},
+      autorEmail = ${emailN},
+      imagen = ${imgN}
+      WHERE id = ${id}`);
+  }
 
-  async delete(id) {
-    await customQuery("DELETE FROM articulos WHERE id=" + id);
+  static async delete(id) {
+    await customQuery(`DELETE FROM articulos WHERE id= ${id}`);
   }
 }
 

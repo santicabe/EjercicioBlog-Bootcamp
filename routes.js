@@ -16,4 +16,6 @@ router.get("/administrador", admin.adminList);
 
 router.post("/administrador", admin.createArticle);
 
+router.get("/delete/:id", admin.deleteArticle);
+
 module.exports = router;
