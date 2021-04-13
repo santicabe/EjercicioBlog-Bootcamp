@@ -7,21 +7,7 @@ const adminList = async (_req, res) => {
 };
 
 const createArticle = async (req, res) => {
-  const titulo = req.body.title;
-  const contenido = req.body.content;
-  const autorNombre = req.body.authorName;
-  const autorApellido = req.body.authorLastname;
-  const email = req.body.authorEmail;
-
-  await Article.save(
-    titulo,
-    contenido,
-    "fecha",
-    autorNombre,
-    autorApellido,
-    email,
-    "img"
-  );
+  await Article.save(req);
 
   res.render("gracias");
 };
@@ -40,7 +26,7 @@ const updateArticle = async (req, res) => {
     "fecha",
     autorNombre,
     autorApellido,
-    authorEmail,
+    email,
     "img"
   );
 
@@ -54,4 +40,4 @@ const deleteArticle = async (req, res) => {
   res.redirect("/home");
 };
 
-module.exports = { adminList, createArticle, deleteArticle };
+module.exports = { adminList, createArticle, deleteArticle, updateArticle };

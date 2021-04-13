@@ -111,7 +111,11 @@
           </div>
           <div id="modificar-articulo" class="p-3 border rounded mt-5 shadow">
             <h3 class="mb-4">Modificar articulo</h3>
-            <form action="/administrador" method="POST">
+            <form
+              action="/administrador/update"
+              method="POST"
+              enctype="multipart/form-data"
+            >
               <label for="idChange">Id</label>
               <input
                 type="text"
@@ -124,29 +128,25 @@
                 type="text"
                 id="titleChange"
                 class="form-control mb-3"
-                name="title"
+                name="titleChange"
               />
               <label for="contentChange" class="mb-3">Contenido</label>
               <input
                 type="text"
                 id="contentChange"
                 class="form-control mb-3"
-                name="content"
+                name="contentChange"
               />
-              <label for="imgChange" class="mb-3">Imagen</label>
-              <input
-                type="file"
-                id="imgChange"
-                class="form-control mb-3"
-                name="imagen"
-                accept="image/jpg, image/png"
-              />
+              <label for="image" class="form-label"
+                >Seleccionar una imagen
+              </label>
+              <input id="image" name="image" type="file" class="form-control" />
               <label for="authorNameChange" class="mb-3">Nombre de autor</label>
               <input
                 type="text"
                 id="authorNameChange"
                 class="form-control mb-3"
-                name="authorName"
+                name="authorNameChange"
               />
               <label for="authorLastnameChange" class="mb-3"
                 >Apellido de autor</label
@@ -155,14 +155,14 @@
                 type="text"
                 id="authorLastnameChange"
                 class="form-control mb-3"
-                name="authorLastname"
+                name="authorLastnameChange"
               />
               <label for="authorEmailChange" class="mb-3">Email de autor</label>
               <input
                 type="text"
                 id="authorEmailChange"
                 class="form-control mb-3"
-                name="authorEmail"
+                name="authorEmailChange"
               />
               <div id="btn-crear">
                 <button type="submit" class="btn btn-primary">

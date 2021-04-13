@@ -1,4 +1,11 @@
 const customQuery = require("../customQuery");
+const formidable = require("formidable");
+const path = require("path");
+
+function getPath(path) {
+  let newPath = path.substring(path.lastIndexOf("\\") + 1);
+  return newPath;
+}
 
 class Article {
   id;
@@ -21,9 +28,22 @@ class Article {
     return result;
   }
 
-  static async save(titulo, contenido, fecha, nombre, apellido, email, img) {
-    await customQuery(`INSERT INTO articulos (titulo, contenido, fechaDeCreacion, autorNombre, autorApellido, autorEmail, imagen) VALUES
-    ("${titulo}", "${contenido}", "${fecha}", "${nombre}", "${apellido}", "${email}", "${img}" )`);
+  static async save(req) {
+    const form = formidable({
+      multiples: true,
+      uploadDir: path.join(__dirname, "..", "public", "img"),
+      keepExtensions: true,
+    });
+
+    form.parse(req, async (err, fields, files) => {
+      if (err) {
+        console.log(err);
+      }
+      let { titulo, contenido, fecha, nombre, apellido, email } = fields;
+      let imageName = getPath(files.image.path);
+      return await customQuery(`INSERT INTO articulos (titulo, contenido, fechaDeCreacion, autorNombre, autorApellido, autorEmail, imagen) VALUES
+    ("${titulo}", "${contenido}", "${fecha}", "${nombre}", "${apellido}", "${email}", "${imageName}" )`);
+    });
   }
 
   static async findById(id) {
@@ -33,7 +53,7 @@ class Article {
 
   static find(fields) {}
 
-  async update(
+  static async update(
     id,
     tituloN,
     contenidoN,
@@ -44,13 +64,13 @@ class Article {
     imgN
   ) {
     await customQuery(`UPDATE articulos 
-      SET titulo = ${tituloN},
-      contenido = ${contenidoN},
-      fechaDeCreacion = ${fechaN},
-      autorNombre = ${nombreN},
-      autorApellido = ${apellidoN},
-      autorEmail = ${emailN},
-      imagen = ${imgN}
+      SET titulo = "${tituloN}",
+      contenido = "${contenidoN}",
+      fechaDeCreacion = "${fechaN}",
+      autorNombre = "${nombreN}",
+      autorApellido = "${apellidoN}",
+      autorEmail = "${emailN}",
+      imagen = "${imgN}"
       WHERE id = ${id}`);
   }
 
