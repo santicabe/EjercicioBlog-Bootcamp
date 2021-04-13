@@ -28,4 +28,8 @@ router.get("/delete/:id", admin.deleteArticle);
 
 router.post("/administrador/update", admin.updateArticle);
 
+router.get("/contacto", (req, res) => {
+  res.render("contacto");
+});
+
 module.exports = router;
