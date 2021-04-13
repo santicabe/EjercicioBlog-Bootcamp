@@ -1,0 +1,60 @@
+#titulo {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif, Courier, monospace;
+  letter-spacing: 3px;
+  color: black;
+  font-size: 70px;
+}
+
+@media (max-width: 600px) {
+  #titulo {
+    font-size: 30px;
+  }
+}
+
+#facebook,
+#twitter,
+#youtube {
+  font-size: 100px;
+  transition: 0.3s;
+}
+
+@media (max-width: 600px) {
+  #facebook,
+  #twitter,
+  #youtube {
+    font-size: 30px;
+  }
+}
+
+a {
+  color: black;
+  text-decoration: none;
+  text-align: center;
+}
+
+a:hover {
+  color: yellow;
+}
+
+#facebook:hover {
+  font-size: 110px;
+}
+#twitter:hover {
+  font-size: 110px;
+}
+#youtube:hover {
+  font-size: 110px;
+}
+
+body {
+  background-image: url(/img/Foto-Hinchada-Penarol-1024x576.jpg);
+  background-size: cover;
+}
+
+#contact-card {
+  background-color: white;
+  margin-top: 30px;
+
+  border: black solid 1px;
+}
