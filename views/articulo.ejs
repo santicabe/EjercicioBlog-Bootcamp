@@ -32,23 +32,28 @@
         <h1 id="titulo-articulo"><strong><%=articulo.titulo%></strong></h1>
         <h4 id="autor-articulo" class="mt-4">
           Creado por <%= articulo.autorNombre %> <%= articulo.autorApellido %>.
-          fecha de publicación: <%= articulo.fechaDeCreacion %>
+          Fecha de publicación: <%= articulo.fechaDeCreacion %>
         </h4>
       </div>
 
       <div id="articulo">
         <div>
           <div id="img-articulo">
-            <img src="/img/<%=articulo.imagen%>" alt="img" class="img-fluid shadow-lg" id="img-individual" />
+            <img
+              src="/img/<%=articulo.imagen%>"
+              alt="img"
+              class="img-fluid shadow-lg"
+              id="img-individual"
+            />
           </div>
         </div>
         <div id="contenido-articulo">
           <p><%= articulo.contenido %></p>
-          
         </div>
       </div>
       <div class="comentarios"></div>
     </div>
+    
     <%- include("footer")-%>
   </body>
 </html>

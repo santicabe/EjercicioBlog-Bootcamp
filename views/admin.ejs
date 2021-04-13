@@ -137,6 +137,14 @@
                 class="form-control mb-3"
                 name="contentChange"
               />
+              <label for="imgChange" class="mb-3">Imagen</label>
+              <input
+                type="file"
+                id="imgChange"
+                class="form-control mb-3"
+                name="imgChange"
+                accept="image/jpg, image/png"
+              />
               <label for="image" class="form-label"
                 >Seleccionar una imagen
               </label>
@@ -177,5 +185,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="/controllers/adminController.js"></script>
     <%- include("footer")-%>
+    <script src="/public/delete.js"></script>
   </body>
 </html>

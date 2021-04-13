@@ -1,8 +1,10 @@
 #titulo-home {
   margin-top: 150px;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  
 }
+
+
 #titulo-home:hover {
   margin-top: 155px;
   transition: 0.2s;
@@ -13,12 +15,12 @@
   background-color: white;
   width: 10rem;
   height: 0.2rem;
-  margin: auto;
+
   margin-top: 20px;
 }
 
 #titulo {
-  text-align: center;
+  text-align: left;
   margin-bottom: 200px;
 }
 
