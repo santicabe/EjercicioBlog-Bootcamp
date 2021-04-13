@@ -1,12 +1,12 @@
 #titulo-home {
-  margin-top: 150px;
+  margin-top: 10px;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   
 }
 
 
 #titulo-home:hover {
-  margin-top: 155px;
+  margin-top: 20px;
   transition: 0.2s;
   font-size: 2.7rem;
 }
@@ -30,6 +30,9 @@ body {
   background-attachment: fixed;
   background-position: center;
   background-color: rgb(246, 246, 115) !important;
+  padding-top: 90px;
+  
+  
 }
 
 #titulo-articulo {
