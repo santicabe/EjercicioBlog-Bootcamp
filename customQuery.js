@@ -9,6 +9,7 @@ const customQuery = async (sqlString, fields) => {
   });
 
   const [data] = await connection.execute(sqlString, fields);
+  console.log(sqlString);
 
   connection.end();
   return data;

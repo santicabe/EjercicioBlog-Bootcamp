@@ -6,9 +6,14 @@
   font-size: 70px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 1200px) {
   #titulo {
-    font-size: 30px;
+    font-size: 60px;
+  }
+}
+@media (max-width: 768px) {
+  #titulo {
+    font-size: 40px;
   }
 }
 
@@ -17,13 +22,21 @@
 #youtube {
   font-size: 100px;
   transition: 0.3s;
+  margin-bottom: 100px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 1200px) {
   #facebook,
   #twitter,
   #youtube {
-    font-size: 30px;
+    font-size: 80px;
+  }
+}
+@media (max-width: 768px) {
+  #facebook,
+  #twitter,
+  #youtube {
+    font-size: 50px;
   }
 }
 
@@ -55,6 +68,5 @@ body {
 #contact-card {
   background-color: white;
   margin-top: 30px;
-
   border: black solid 1px;
 }

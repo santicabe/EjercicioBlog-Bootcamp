@@ -9,7 +9,7 @@ const adminList = async (_req, res) => {
 const createArticle = async (req, res) => {
   await Article.save(req);
 
-  res.render("gracias");
+  res.redirect("/gracias");
 };
 
 const updateArticle = async (req, res) => {
@@ -30,7 +30,7 @@ const updateArticle = async (req, res) => {
     "img"
   );
 
-  res.render("gracias");
+  res.redirect("/gracias");
 };
 
 const deleteArticle = async (req, res) => {

@@ -13,17 +13,10 @@
       crossorigin="anonymous"
     />
 
-    <link rel="shortcut icon" href="/public/img/gordo-colombes-logo" />
+    <link rel="shortcut icon" href="/img/gordo-colombes-logo" />
     <link rel="stylesheet" href="/css/navbar.css" />
     <link rel="stylesheet" href="/css/articulo.css" />
     <link rel="stylesheet" href="/css/footer.css" />
-    
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
-      crossorigin="anonymous"
-    />
   </head>
   <body>
     <%- include("navbar")-%>
@@ -51,9 +44,45 @@
           <p><%= articulo.contenido %></p>
         </div>
       </div>
-      <div class="comentarios"></div>
+      <hr class="mt-5" />
+      <div id="area-comentarios" class="mt-2">
+        <h3>Comentarios</h3>
+        <form action="">
+          <textarea
+            type="text"
+            placeholder="Deja tu comentario..."
+            name="comment-box"
+            id="comment-box"
+            class="form-control mt-4"
+          >
+          </textarea>
+          <div
+            id="btn-enviar"
+            class="mt-2 d-flex justify-content-end align-items-center"
+          >
+            <a href="" class="btn btn-dark">Enviar</a>
+          </div>
+        </form>
+        <div id="comment" class="mt-5">
+          <div class="row mb-2">
+            <div id="comment-user" class="mb-2">Usuario</div>
+            <div id="comment-date" class="mb-2">Fecha</div>
+          </div>
+          <p id="comment-content">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi hic
+            alias nisi ut porro enim deserunt quo officiis omnis deleniti! Quasi
+            dolorum at vitae nemo eaque ducimus? Aliquam, veniam aspernatur.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
+            tempore voluptatum tenetur, quo assumenda quia facilis fuga iure
+            minus corporis nisi ipsa perferendis dolores quod rerum nam saepe
+            laboriosam ad.
+          </p>
+
+          <hr />
+        </div>
+      </div>
     </div>
-    
+
     <%- include("footer")-%>
   </body>
 </html>

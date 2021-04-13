@@ -1,9 +1,8 @@
 #titulo-home {
   margin-top: 10px;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  background-image: url(unnamed.png);
 }
-
 
 #titulo-home:hover {
   margin-top: 20px;
@@ -12,7 +11,7 @@
 }
 
 #linea-titulo-home {
-  background-color: white;
+  background-color: black;
   width: 10rem;
   height: 0.2rem;
 
@@ -22,6 +21,7 @@
 #titulo {
   text-align: left;
   margin-bottom: 200px;
+  
 }
 
 body {
@@ -31,8 +31,6 @@ body {
   background-position: center;
   background-color: rgb(246, 246, 115) !important;
   padding-top: 90px;
-  
-  
 }
 
 #titulo-articulo {
@@ -69,7 +67,7 @@ body {
   background-image: url(/img/fonto.jpg);
   object-fit: contain;
   padding: 50px;
-  color: white;
+  color: black;
   border-bottom: black solid 1px;
 }
 

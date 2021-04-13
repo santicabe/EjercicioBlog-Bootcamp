@@ -2,11 +2,6 @@ const customQuery = require("../customQuery");
 const formidable = require("formidable");
 const path = require("path");
 
-function getPath(path) {
-  let newPath = path.substring(path.lastIndexOf("\\") + 1);
-  return newPath;
-}
-
 class Article {
   id;
   titulo;
@@ -34,16 +29,37 @@ class Article {
       uploadDir: path.join(__dirname, "..", "public", "img"),
       keepExtensions: true,
     });
-
+    console.log("hola");
     form.parse(req, async (err, fields, files) => {
+      console.log("chau");
+      console.log(fields);
       if (err) {
         console.log(err);
       }
-      let { titulo, contenido, fecha, nombre, apellido, email } = fields;
-      let imageName = getPath(files.image.path);
-      return await customQuery(`INSERT INTO articulos (titulo, contenido, fechaDeCreacion, autorNombre, autorApellido, autorEmail, imagen) VALUES
-    ("${titulo}", "${contenido}", "${fecha}", "${nombre}", "${apellido}", "${email}", "${imageName}" )`);
+      const {
+        title,
+        content,
+        fecha,
+        authorName,
+        authorLastname,
+        authorEmail,
+      } = fields;
+      const imageName = path.basename(files.imagen.path);
+      console.log(imageName);
+      return await customQuery(
+        `INSERT INTO articulos (titulo, contenido, fechaDeCreacion, autorNombre, autorApellido, autorEmail, imagen) VALUES (?, ?, ?, ?, ?, ?, ?)`,
+        [
+          title,
+          content,
+          new Date(),
+          authorName,
+          authorLastname,
+          authorEmail,
+          imageName,
+        ]
+      );
     });
+    console.log("hola2");
   }
 
   static async findById(id) {

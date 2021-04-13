@@ -8,6 +8,14 @@ router.get("/", (req, res) => {
   res.send("Pagina de inicio");
 });
 
+router.get("/contacto", (req, res) => {
+  res.render("contacto");
+});
+
+router.get("/gracias", (req, res) => {
+  res.render("gracias");
+});
+
 router.get("/home", home.showHome);
 
 router.get("/articulo/:id", home.showArticle);
