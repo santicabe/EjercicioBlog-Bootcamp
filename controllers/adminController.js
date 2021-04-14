@@ -1,4 +1,4 @@
-const table = require("../db/models/sequelize");
+const table = require("../db/models");
 const Article = require("../db/models/article");
 
 const adminList = async (_req, res) => {
