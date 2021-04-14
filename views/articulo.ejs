@@ -22,10 +22,10 @@
     <%- include("navbar")-%>
     <div class="container">
       <div class="header-articulo text-center">
-        <h1 id="titulo-articulo"><strong><%=articulo.titulo%></strong></h1>
+        <h1 id="titulo-articulo"><strong><%=articulo.title%></strong></h1>
         <h4 id="autor-articulo" class="mt-4">
-          Creado por <%= articulo.autorNombre %> <%= articulo.autorApellido %>.
-          Fecha de publicación: <%= articulo.fechaDeCreacion %>
+          Creado por <%= articulo.authorId%>. Fecha de publicación: <%=
+          articulo.createdAt %>
         </h4>
       </div>
 
@@ -33,7 +33,7 @@
         <div>
           <div id="img-articulo">
             <img
-              src="/img/<%=articulo.imagen%>"
+              src="/img/<%=articulo.image%>"
               alt="img"
               class="img-fluid shadow-lg"
               id="img-individual"
@@ -41,7 +41,7 @@
           </div>
         </div>
         <div id="contenido-articulo">
-          <p><%= articulo.contenido %></p>
+          <p><%= articulo.content %></p>
         </div>
       </div>
       <hr class="mt-5" />
