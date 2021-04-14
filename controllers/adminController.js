@@ -1,5 +1,5 @@
 const table = require("../db/models/sequelize");
-const Article = require("../db/models/Article");
+const Article = require("../db/models/article");
 
 const adminList = async (_req, res) => {
   const articulos = await table.Article.findAll();
