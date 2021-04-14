@@ -20,6 +20,10 @@ router.get("/home", home.showHome);
 
 router.get("/articulo/:id", home.showArticle);
 
+router.get("/login", (req, res) => {
+  res.render("login");
+});
+
 router.get("/administrador", admin.adminList);
 
 router.post("/administrador", admin.createArticle);
