@@ -1,1 +1,0 @@
-const customQuery = require("../customQuery");

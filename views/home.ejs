@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="/css/navbar.css" />
     <link rel="stylesheet" href="/css/home.css" />
     <link rel="stylesheet" href="/css/footer.css" />
-    
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
@@ -39,15 +39,15 @@
             <div class="row">
               <div class="col-lg-6 col-sm-12">
                 <div id="titulo-articulo">
-                  <h4 class="p-1 mb-3"><%= element.titulo %></h4>
+                  <h4 class="p-1 mb-3"><%= element.title %></h4>
                 </div>
                 <hr />
                 <div id="contenido-articulo" class="p-1">
-                  <%= element.contenido.substring(0, 200) %>
+                  <%= element.content %>
                   <strong>(Continúa...)</strong>
                 </div>
                 <div id="author-info" class="p-1 mt-3">
-                  <%= element.autorNombre %> <%= element.autorApellido %>
+                  <%= element.authorId %>
                 </div>
               </div>
               <div class="col-lg-6 col-sm-12">
