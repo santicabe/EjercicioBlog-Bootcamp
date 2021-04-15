@@ -7,7 +7,8 @@ const session = require("express-session");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const models = require("./db/models");
-const flash = require("connect-flash");
+// const flash = require("connect-flash");
+const flash = require("express-flash");
 
 // const { render } = require("ejs");
 
@@ -15,6 +16,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
+app.use(flash());
 app.use(
   session({
     secret: "AlgúnTextoSuperSecreto",
@@ -24,7 +26,6 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(flash());
 
 app.use(router);
 

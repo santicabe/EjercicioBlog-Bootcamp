@@ -14,11 +14,15 @@ passport.use(
       Author.findOne({ where: { email: email } })
         .then(async function (user) {
           if (!user) {
-            return done(null, false, { message: "Incorrect username." });
+            return done(null, false, {
+              message: "Incorrect credentials bolso gallina.",
+            });
           }
           const isValid = await bcrypt.compare(password, user.password);
           if (!isValid) {
-            return done(null, false, { message: "Incorrect password." });
+            return done(null, false, {
+              message: "Incorrect credentials bolso gallina.",
+            });
           }
           return done(null, user);
         })

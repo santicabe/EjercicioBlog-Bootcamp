@@ -5,7 +5,8 @@ const home = require("./controllers/articleController");
 const admin = require("./controllers/adminController");
 const auth = require("./controllers/authController");
 
-router.use(function (req, res, next) {
+router.use((req, res, next) => {
+  //middleware para psarle al front el objecto currentUser
   res.locals.currentUser = req.user;
   next();
 });
