@@ -24,7 +24,8 @@ router.get("/articulo/:id", home.showArticle);
 router.get("/login", auth.login);
 
 router.post("/login", auth.authenticate);
-router.get("/register", (req, res) => res.render("register"));
+
+router.get("/register", auth.register);
 
 router.post("/register", auth.store);
 

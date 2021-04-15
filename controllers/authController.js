@@ -1,4 +1,4 @@
-const { article, coment, Author } = require("../db/models");
+const { Article, Coment, Author } = require("../db/models");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const bcrypt = require("bcryptjs");
@@ -12,11 +12,12 @@ passport.use(
     },
     function (email, password, done) {
       Author.findOne({ where: { email: email } })
-        .then(function (user) {
+        .then(async function (user) {
           if (!user) {
             return done(null, false, { message: "Incorrect username." });
           }
-          if (!bcrypt.compare(password, user.password)) {
+          const isValid = await bcrypt.compare(password, user.password);
+          if (!isValid) {
             return done(null, false, { message: "Incorrect password." });
           }
           return done(null, user);
@@ -25,10 +26,6 @@ passport.use(
     }
   )
 );
-
-// bcrypt.compare("B4c0//", hash).then((res) => {
-//   // res === true
-// });
 
 passport.serializeUser(function (user, done) {
   done(null, user.id);
@@ -53,13 +50,13 @@ const login = (req, res) => {
   res.render("login");
 };
 
-const authenticate = () => {
-  passport.authenticate("local", {
-    successRedirect: "/administrador",
-    failureRedirect: "/login",
-    failureFlash: true,
-  });
-};
+const authenticate = passport.authenticate("local", {
+  successRedirect: "/administrador",
+  failureRedirect: "/login",
+  failureFlash: true,
+});
+
+const register = (req, res) => res.render("register");
 
 const store = (req, res) => {
   bcrypt.genSalt(10, function (err, salt) {
@@ -88,4 +85,4 @@ const logout = (req, res) => {
   res.redirect("/login");
 };
 
-module.exports = { isLoggedIn, login, authenticate, store, logout };
+module.exports = { isLoggedIn, login, authenticate, register, store, logout };
