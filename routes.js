@@ -6,7 +6,6 @@ const admin = require("./controllers/adminController");
 
 const { article, coment, Author } = require("./db/models");
 
-const session = require("express-session");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 
@@ -15,42 +14,20 @@ passport.use(
     {
       usernameField: "email",
       passwordField: "password",
+      passReqToCallBack: true,
     },
-    async function (email, password, done) {
-      //console.log("szdfsadfasd", email, password);
-      // Author.findOne({ where: { email: email } }, function (err, user) {
-      //   console.log("AAasdAAAAAA");
-      //   if (err) {
-      //     return done(err);
-      //   }
-      //   if (!user) {
-      //     return done(null, false, { message: "Incorrect username." });
-      //   }
-      //   if (!user.validPassword(password)) {
-      //     return done(null, false, { message: "Incorrect password." });
-      //   }
-      //   return done(null, user);
-      // });
-      var user = await Author.findOne({
-        where: {
-          email: email,
-        },
-      });
-      //console.log(user);
-      // if (user == null) {
-      //   return done(null, false, { message: "Incorrect email." });
-      // }
-      // if (!user.validPassword(password)) {
-      //   return done(null, false, { message: "Incorrect password." });
-      // }
-      // return done(null, user);
-      if (!user) {
-        return done(null, false, { message: "Incorrect username." });
-      }
-      if (user.password != password) {
-        return done(null, false, { message: "Incorrect password." });
-      }
-      return done(null, user);
+    function (email, password, done) {
+      Author.findOne({ where: { email: email } })
+        .then(function (user) {
+          if (!user) {
+            return done(null, false, { message: "Incorrect username." });
+          }
+          if (user.password != password) {
+            return done(null, false, { message: "Incorrect password." });
+          }
+          return done(null, user);
+        })
+        .catch((err) => console.log(err));
     }
   )
 );
@@ -70,7 +47,6 @@ passport.deserializeUser(function (id, done) {
 
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) return next();
-
   res.redirect("/login");
 }
 
@@ -98,7 +74,7 @@ router.post(
   passport.authenticate("local", {
     successRedirect: "/administrador",
     failureRedirect: "/login",
-    failureFlash: false,
+    failureFlash: true,
   })
 );
 router.get("/register", (req, res) => res.render("register"));
@@ -112,9 +88,41 @@ router.post("/register", async (req, res) => {
   } else {
     res.redirect("back");
   }
+
+  User.findOne({
+    where: {
+      email: email,
+    },
+  }).then(function (user) {
+    if (user) {
+      return done(null, false, {
+        message: "That email is already taken",
+      });
+    } else {
+      var userPassword = generateHash(password);
+      var data = {
+        email: email,
+        password: userPassword,
+        firstname: req.body.firstname,
+        lastname: req.body.lastname,
+      };
+      User.create(data).then(function (newUser, created) {
+        if (!newUser) {
+          return done(null, false);
+        }
+        if (newUser) {
+          return done(null, newUser);
+        }
+      });
+    }
+  });
+  //
 });
 
-// e. [GET] http://localhost:3000/logout.
+router.get("/logout", (req, res) => {
+  req.logout();
+  res.redirect("/login");
+});
 
 router.get("/administrador", isLoggedIn, admin.adminList);
 

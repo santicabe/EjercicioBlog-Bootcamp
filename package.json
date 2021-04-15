@@ -16,6 +16,7 @@
   },
   "homepage": "https://github.com/santicabe/Ejercicio21-Bootcamp#readme",
   "dependencies": {
+    "connect-flash": "^0.1.1",
     "dotenv": "^8.2.0",
     "ejs": "^3.1.6",
     "env": "0.0.2",
