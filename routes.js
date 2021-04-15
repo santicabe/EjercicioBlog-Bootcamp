@@ -5,6 +5,11 @@ const home = require("./controllers/articleController");
 const admin = require("./controllers/adminController");
 const auth = require("./controllers/authController");
 
+router.use(function (req, res, next) {
+  res.locals.currentUser = req.user;
+  next();
+});
+
 router.get("/", (req, res) => {
   res.send("Pagina de inicio");
 });

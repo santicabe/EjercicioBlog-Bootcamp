@@ -15,9 +15,15 @@
     <a class="navbar-brand items-navbar" href="/contacto">Contacto</a>
     <a class="navbar-brand items-navbar" href="">Sobre el blog</a>
     <a class="navbar-brand items-navbar" href="/administrador">Admin</a>
-    <a class="navbar-brand items-navbar" href="/register">Register</a>
 
+    <% if(!currentUser){ %>
     <a class="navbar-brand items-navbar" href="/login">Login</a>
+    <a class="navbar-brand items-navbar" href="/register">Sign Up</a>
+    <% } else { %>
+    <a class="navbar-brand items-navbar" href="#"
+      >Signed In As: <%= currentUser.firstname %>
+    </a>
     <a class="navbar-brand items-navbar" href="/logout">Logout</a>
+    <% } %>
   </div>
 </nav>

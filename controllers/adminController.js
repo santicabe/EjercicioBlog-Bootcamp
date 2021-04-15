@@ -20,8 +20,7 @@ const updateArticle = async (req, res) => {
   //hay que escribir la logica para que el author que creo el articulo sea el
   //mismo que esta logueado y el solo lo pueda editar
   //articleId
-  // article.authorId === author.id que seria el id del usuario logueado
-  console.log("info del usuario logueado", req.isAuthenticated());
+  // article.authorId === req.user.id que seria el id del usuario logueado
   const id = req.body.idChange;
   const titulo = req.body.titleChange;
   const contenido = req.body.contentChange;
