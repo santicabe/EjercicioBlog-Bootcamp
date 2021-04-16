@@ -29,6 +29,6 @@ app.use(passport.session());
 
 app.use(router);
 
-//models.sequelize.sync({ force: true }).then(() => console.log("done"));
-
+/* models.sequelize.sync({ force: true }).then(() => console.log("done"));
+ */
 app.listen(3000, () => console.log("Servidor corriendo en puerto 3000"));

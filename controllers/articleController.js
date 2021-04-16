@@ -3,7 +3,6 @@ const Article = require("../db/models/article");
 
 const showHome = async (_req, res) => {
   const articulos = await table.Article.findAll();
-  console.log(articulos[0].title);
   res.render("home", { articulos });
 };
 
