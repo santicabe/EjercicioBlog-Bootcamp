@@ -89,4 +89,32 @@ const logout = (req, res) => {
   res.redirect("/login");
 };
 
+const FacebookStrategy = require("passport-facebook").Strategy;
+
+passport.use(
+  new FacebookStrategy(
+    {
+      clientID: 791443398474487,
+      clientSecret: "7fe9bca965cb582f378932168760cbe4",
+      callbackURL: "http://localhost:3000/auth/facebook/callback",
+      profileFields: ["id", "email", "name"],
+    },
+    async function (accessToken, refreshToken, profile, done) {
+      try {
+        const user = await Author.findOrCreate({
+          where: { email: profile.emails[0].value },
+          defaults: {
+            firstname: profile.name.givenName,
+            lastname: profile.name.familyName,
+            email: profile.emails[0].value,
+          },
+        });
+        done(null, user[0]);
+      } catch (err) {
+        done(err);
+      }
+    }
+  )
+);
+
 module.exports = { isLoggedIn, login, authenticate, register, store, logout };

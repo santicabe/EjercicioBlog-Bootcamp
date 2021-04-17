@@ -1,3 +1,5 @@
+const Author = require("./author.js");
+
 module.exports = (sequelize, DataTypes) => {
   const Article = sequelize.define("article", {
     title: {

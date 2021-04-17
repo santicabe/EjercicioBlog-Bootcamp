@@ -18,7 +18,11 @@
 
     <% if(!currentUser){ %>
     <a class="navbar-brand items-navbar" href="/login">Login</a>
+    <a class="navbar_brand items-navbar" href="/auth/facebook"
+      >Login with Facebook</a
+    >
     <a class="navbar-brand items-navbar" href="/register">Sign Up</a>
+
     <% } else { %>
     <a class="navbar-brand items-navbar" href="#"
       >Signed In As: <%= currentUser.firstname %>

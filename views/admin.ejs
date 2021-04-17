@@ -45,11 +45,14 @@
               <tr>
                 <th scope="row"><%= element.id %></th>
                 <td><%= element.title %></td>
-                <td><%= element.authorId %></td>
+                <td><%= element.id %></td>
                 <td><%= element.createdAt %></td>
                 <td>
                   <a href="/delete/<%= element.id %> " class="btn btn-danger"
                     >Eliminar</a
+                  >
+                  <a href="/update/<%= element.id %> " class="btn btn-success"
+                    >Modificar</a
                   >
                 </td>
               </tr>
@@ -60,11 +63,7 @@
         <div class="col-5">
           <div id="crear-articulo" class="p-3 border rounded shadow">
             <h3 class="mb-4">Crear articulo</h3>
-            <form
-              action="/administrador"
-              method="POST"
-              enctype="multipart/form-data"
-            >
+            <form action="/administrador" method="POST">
               <label for="title" class="mb-3">Titulo</label>
               <input
                 type="text"
@@ -84,98 +83,19 @@
                 type="file"
                 id="img"
                 class="form-control mb-3"
-                name="imagen"
+                name="image"
                 accept="image/jpg, image/png"
               />
-              <label for="authorName" class="mb-3">Nombre de autor</label>
-              <input
-                type="text"
-                id="authorName"
-                class="form-control mb-3"
-                name="authorName"
-              />
-              <label for="authorLastname" class="mb-3">Apellido de autor</label>
-              <input
-                type="text"
-                id="authorLastname"
-                class="form-control mb-3"
-                name="authorLastname"
-              />
-              <label for="authorEmail" class="mb-3">Email de autor</label>
-              <input
-                type="text"
-                id="authorEmail"
-                class="form-control mb-3"
-                name="authorEmail"
-              />
+              <label for="authorId">Seleccionar autor:</label>
+              <select id="authorId" name="authorId">
+                <% authors.forEach(author => { %>
+                <option value="<%= author.id %> ">
+                  <%=`${author.firstname} ${author.lastname}`%>
+                </option>
+                <% }) %>
+              </select>
               <div id="btn-crear">
                 <button type="submit" class="btn btn-success">Crear!</button>
-              </div>
-            </form>
-          </div>
-          <div id="modificar-articulo" class="p-3 border rounded mt-5 shadow">
-            <h3 class="mb-4">Modificar articulo</h3>
-            <form
-              action="/administrador/update"
-              method="POST"
-              enctype="multipart/form-data"
-            >
-              <label for="idChange">Id</label>
-              <input
-                type="text"
-                id="idCHange"
-                class="form-control mb-3"
-                name="idChange"
-              />
-              <label for="titleChange" class="mb-3">Titulo</label>
-              <input
-                type="text"
-                id="titleChange"
-                class="form-control mb-3"
-                name="titleChange"
-              />
-              <label for="contentChange" class="mb-3">Contenido</label>
-              <input
-                type="text"
-                id="contentChange"
-                class="form-control mb-3"
-                name="contentChange"
-              />
-              <label for="imgChange" class="mb-3">Imagen</label>
-              <input
-                type="file"
-                id="imgChange"
-                class="form-control mb-3"
-                name="imgChange"
-                accept="image/jpg, image/png"
-              />
-              <label for="authorNameChange" class="mb-3">Nombre de autor</label>
-              <input
-                type="text"
-                id="authorNameChange"
-                class="form-control mb-3"
-                name="authorNameChange"
-              />
-              <label for="authorLastnameChange" class="mb-3"
-                >Apellido de autor</label
-              >
-              <input
-                type="text"
-                id="authorLastnameChange"
-                class="form-control mb-3"
-                name="authorLastnameChange"
-              />
-              <label for="authorEmailChange" class="mb-3">Email de autor</label>
-              <input
-                type="text"
-                id="authorEmailChange"
-                class="form-control mb-3"
-                name="authorEmailChange"
-              />
-              <div id="btn-crear">
-                <button type="submit" class="btn btn-primary">
-                  Modificar!
-                </button>
               </div>
             </form>
           </div>

@@ -9,8 +9,11 @@ const showHome = async (_req, res) => {
 const showArticle = async (req, res) => {
   id = req.params.id;
   const articulo = await table.Article.findByPk(id);
-
-  res.render("articulo", { articulo });
+  const author = await articulo.getAuthor();
+  console.log("articulo", articulo);
+  console.log("author", articulo.getAuthor());
+  console.log("author_id", articulo.authorid);
+  res.render("articulo", { articulo, author });
 };
 
 module.exports = { showHome, showArticle };

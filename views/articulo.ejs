@@ -24,8 +24,8 @@
       <div class="header-articulo text-center">
         <h1 id="titulo-articulo"><strong><%=articulo.title%></strong></h1>
         <h4 id="autor-articulo" class="mt-4">
-          Creado por <%= articulo.authorId%>. Fecha de publicación: <%=
-          articulo.createdAt %>
+          <strong>Creado por</strong> <%= author.firstname%> <%= author.lastname
+          %> <strong>. Fecha de publicación:</strong> <%= articulo.createdAt %>
         </h4>
       </div>
 

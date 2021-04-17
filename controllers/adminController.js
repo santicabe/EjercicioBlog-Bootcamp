@@ -5,14 +5,27 @@ const author = require("../db/models/author");
 
 const adminList = async (_req, res) => {
   const articulos = await table.Article.findAll();
+  const authors = await table.Author.findAll();
 
-  res.render("admin", { articulos });
+  res.render("admin", { articulos, authors });
 };
 
 const createArticle = async (req, res) => {
-  await Article.create(req.body);
-  //ojo que deben instalar formidable y usar sus metodos y propiedades de fields y files
-  //y el req.body no anda con formidable
+  const title = req.body.title;
+  const content = req.body.content;
+  const image = req.body.image;
+  const authorId = req.body.authorId;
+  console.log("title", req.body);
+  try {
+    await table.Article.create({
+      title: title,
+      content: content,
+      image: image,
+      authorId: authorId,
+    });
+  } catch (error) {
+    console.log(error);
+  }
   res.redirect("/gracias");
 };
 
@@ -43,7 +56,8 @@ const updateArticle = async (req, res) => {
 
 const deleteArticle = async (req, res) => {
   id = req.params.id;
-  await Article.delete(id);
+
+  await table.Article.destroy({ where: { id: id } });
 
   res.redirect("/home");
 };
