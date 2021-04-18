@@ -24,19 +24,17 @@ router.get("/gracias", (req, res) => {
   res.render("gracias");
 });
 
-router.get("/update/:id", (req, res) => {
-  res.render("update");
-});
-
 router.get("/home", home.showHome);
 
 router.get("/articulo/:id", home.showArticle);
 
-router.get("/administrador", auth.isLoggedIn, admin.adminList); //te deja pasar o no
+router.get("/administrador", auth.isLoggedIn, admin.adminList);
 
 router.post("/administrador", auth.isLoggedIn, admin.createArticle); //te deja pasar o no
 
 router.get("/delete/:id", auth.isLoggedIn, admin.deleteArticle); //te deja pasar o no
+
+router.get("/update/:id", auth.isLoggedIn, admin.showUpdate); //te deja pasar o no
 
 router.post("/update/:id", auth.isLoggedIn, admin.updateArticle); //te deja pasar o no
 

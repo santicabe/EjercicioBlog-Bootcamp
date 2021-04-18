@@ -43,8 +43,10 @@
                 </div>
                 <hr />
                 <div id="contenido-articulo" class="p-1">
-                  <%= element.content %>
+                  <%= element.content.substring(0, 200) %> <% if
+                  (element.content.length > 200) { %>
                   <strong>(Continúa...)</strong>
+                  <% } %>
                 </div>
                 <div id="author-info" class="p-1 mt-3">
                   <%= element.authorId %>

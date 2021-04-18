@@ -1,7 +1,6 @@
 const table = require("../db/models");
-const { Article, Coment, Author } = require("../db/models");
-const article = require("../db/models/article");
-const author = require("../db/models/author");
+const formidable = require("formidable");
+const fs = require("fs");
 
 const adminList = async (_req, res) => {
   const articulos = await table.Article.findAll();
@@ -10,46 +9,42 @@ const adminList = async (_req, res) => {
   res.render("admin", { articulos, authors });
 };
 
+const showUpdate = async (req, res) => {
+  const id = req.params.id;
+  const article = await table.Article.findByPk(id);
+  res.render("update", { article });
+};
+
 const createArticle = async (req, res) => {
-  const title = req.body.title;
-  const content = req.body.content;
-  const image = req.body.image;
-  const authorId = req.body.authorId;
-  console.log("title", req.body);
-  try {
-    await table.Article.create({
-      title: title,
-      content: content,
-      image: image,
-      authorId: authorId,
+  const form = formidable({
+    multiples: true,
+    uploadDir: process.cwd() + "/public/img",
+    keepExtensions: true,
+  });
+  form.parse(req, async (arr, fields, files) => {
+    let imgDir = files.image.path.split(`\\`).slice(-1).toString();
+    table.Article.create({
+      title: fields.title,
+      content: fields.content,
+      authorId: fields.authorId,
+      image: imgDir,
     });
-  } catch (error) {
-    console.log(error);
-  }
+  });
   res.redirect("/gracias");
 };
 
 const updateArticle = async (req, res) => {
-  //hay que escribir la logica para que el author que creo el articulo sea el
-  //mismo que esta logueado y el solo lo pueda editar
-  //articleId
-  // article.authorId === req.user.id que seria el id del usuario logueado
-  const id = req.body.idChange;
-  const titulo = req.body.titleChange;
-  const contenido = req.body.contentChange;
-  const autorNombre = req.body.authorNameChange;
-  const autorApellido = req.body.authorLastnameChange;
-  const email = req.body.authorEmailChange;
-  await Article.update(
-    id,
-    titulo,
-    contenido,
-    "fecha",
-    autorNombre,
-    autorApellido,
-    email,
-    "img"
-  );
+  const title = req.body.titleChange;
+  const content = req.body.contentChange;
+  /* const image = req.body.imgChange; */
+  const id = req.params.id;
+
+  table.Article.findByPk(id).then((article) => {
+    article.update({
+      title: title,
+      content: content,
+    });
+  });
 
   res.redirect("/gracias");
 };
@@ -57,9 +52,25 @@ const updateArticle = async (req, res) => {
 const deleteArticle = async (req, res) => {
   id = req.params.id;
 
+  data = await table.Article.findByPk(id);
+  imgPath = process.cwd() + "/public/img/" + data.image;
+  fs.unlink(imgPath, function (err) {
+    if (err) {
+      throw err;
+    } else {
+      console.log("Se borró el archivo");
+    }
+  });
+
   await table.Article.destroy({ where: { id: id } });
 
   res.redirect("/home");
 };
 
-module.exports = { adminList, createArticle, deleteArticle, updateArticle };
+module.exports = {
+  adminList,
+  createArticle,
+  deleteArticle,
+  updateArticle,
+  showUpdate,
+};

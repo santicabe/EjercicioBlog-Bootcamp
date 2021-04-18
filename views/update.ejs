@@ -25,20 +25,14 @@
     <%- include("navbar")-%>
     <div id="modificar-articulo" class="p-3 border rounded mt-5 shadow">
       <h3 class="mb-4">Modificar articulo</h3>
-      <form
-        action="/administrador/update"
-        method="POST"
-        enctype="multipart/form-data"
-      >
+      <form action="/update/<%= article.id %> " method="POST">
         <label for="titleChange" class="mb-3">Titulo</label>
-        <input
-          type="text"
-          id="titleChange"
-          class="form-control mb-3"
-          name="titleChange"
-        />
+        <textarea name="titleChange" id="titleChange" cols="200" rows="1">
+<%= article.title %> </textarea
+        >
         <label for="contentChange" class="mb-3">Contenido</label>
         <textarea name="contentChange" id="contentChange" cols="200" rows="10">
+<%= article.content %> 
         </textarea>
         <label for="imgChange" class="mb-3">Imagen</label>
         <input
