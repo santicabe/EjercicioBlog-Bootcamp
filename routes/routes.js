@@ -1,9 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const mysql = require("mysql2");
-const home = require("./controllers/articleController");
-const admin = require("./controllers/adminController");
-const auth = require("./controllers/authController");
+const home = require("../controllers/articleController");
+const admin = require("../controllers/adminController");
+const auth = require("../controllers/authController");
 const passport = require("passport");
 
 router.use((req, res, next) => {

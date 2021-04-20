@@ -1,7 +1,8 @@
 require("dotenv").config();
 const express = require("express");
 const app = express();
-const router = require("./routes");
+const router = require("./routes/routes");
+const routerAPI = require("./routes/apiRoutes");
 
 const session = require("express-session");
 const passport = require("passport");
@@ -28,6 +29,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(router);
+app.use(routerAPI);
 
 // models.sequelize.sync({ force: true }).then(() => console.log("done"));
 
